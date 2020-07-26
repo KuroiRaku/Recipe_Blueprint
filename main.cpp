@@ -1,3 +1,17 @@
+
+
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QMenuBar>
+
+
+#include <QGuiApplication>
+#include <QtQml>
+
+// QuickQanava headers
+#include <QuickQanava.h>
+
+
 #include "mainwindow.h"
 #include "connectwidget.h"
 #include <QApplication>

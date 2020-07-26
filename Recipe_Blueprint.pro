@@ -15,39 +15,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+include(Vendor/QuickQanava/src/quickqanava.pri)
+
 SOURCES += \
-    QtNodeEditor-master/src/Connection.cpp \
-    QtNodeEditor-master/src/ConnectionBlurEffect.cpp \
-    QtNodeEditor-master/src/ConnectionGeometry.cpp \
-    QtNodeEditor-master/src/ConnectionGraphicsObject.cpp \
-    QtNodeEditor-master/src/ConnectionPainter.cpp \
-    QtNodeEditor-master/src/ConnectionState.cpp \
-    QtNodeEditor-master/src/ConnectionStyle.cpp \
-    QtNodeEditor-master/src/DataModelRegistry.cpp \
-    QtNodeEditor-master/src/FlowScene.cpp \
-    QtNodeEditor-master/src/FlowView.cpp \
-    QtNodeEditor-master/src/FlowViewStyle.cpp \
-    QtNodeEditor-master/src/Node.cpp \
-    QtNodeEditor-master/src/NodeConnectionInteraction.cpp \
-    QtNodeEditor-master/src/NodeDataModel.cpp \
-    QtNodeEditor-master/src/NodeGeometry.cpp \
-    QtNodeEditor-master/src/NodeGraphicsObject.cpp \
-    QtNodeEditor-master/src/NodePainter.cpp \
-    QtNodeEditor-master/src/NodeState.cpp \
-    QtNodeEditor-master/src/NodeStyle.cpp \
-    QtNodeEditor-master/src/Properties.cpp \
-    QtNodeEditor-master/src/StyleCollection.cpp \
     connectwidget.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
-    QtNodeEditor-master/src/ConnectionBlurEffect.hpp \
-    QtNodeEditor-master/src/ConnectionPainter.hpp \
-    QtNodeEditor-master/src/NodeConnectionInteraction.hpp \
-    QtNodeEditor-master/src/NodePainter.hpp \
-    QtNodeEditor-master/src/Properties.hpp \
-    QtNodeEditor-master/src/StyleCollection.hpp \
     connectwidget.h \
     mainwindow.h
 
