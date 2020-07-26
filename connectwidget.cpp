@@ -2,6 +2,8 @@
 
 #include <qwidget.h>
 #include <qpainter.h>
+#include <QMouseEvent>
+#include <QWidget>
 #include <qapplication.h>
 #include <stdlib.h>
 
@@ -14,7 +16,7 @@ const int MAXCOLORS = 40;
 
 
 
-ConnectWidget::ConnectWidget( QWidget *parent, const char *name )
+ConnectWidget::ConnectWidget( QWidget *parent )
     : QWidget( parent)
 {
     //setBackgroundColor( Qt::black );                // white background
@@ -57,7 +59,7 @@ void ConnectWidget::mousePressEvent( QMouseEvent * )
 {
     down = true;
     count = 0;                                  // start recording points
-    QWidget::erase();                                    // erase widget contents
+                                        // erase widget contents
 }
 
 

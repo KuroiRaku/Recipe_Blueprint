@@ -14,13 +14,14 @@ QT_END_NAMESPACE
 class ConnectWidget : public QWidget
 {
 public:
-    ConnectWidget( QWidget *parent=0, const char *name=0 );
+    ConnectWidget( QWidget *parent=0);
    ~ConnectWidget();
-protected:
+
     void        paintEvent( QPaintEvent * );
     void        mousePressEvent( QMouseEvent *);
     void        mouseReleaseEvent( QMouseEvent *);
     void        mouseMoveEvent( QMouseEvent *);
+
 private:
     QPoint     *points;                         // point array
     QColor     *colors;                         // color array
