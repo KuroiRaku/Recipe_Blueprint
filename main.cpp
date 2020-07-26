@@ -5,8 +5,10 @@
 #include <QtWidgets/QMenuBar>
 
 
+//for this to get detected, check out the changes in .pro file on QT +=...
 #include <QGuiApplication>
 #include <QtQml>
+#include <QQuickStyle>
 
 // QuickQanava headers
 #include <QuickQanava.h>
