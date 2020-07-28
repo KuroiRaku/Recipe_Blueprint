@@ -17,13 +17,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 include(Vendor/QuickQanava/src/quickqanava.pri)
 
+
 SOURCES += \
     connectwidget.cpp \
+    dataflow.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     connectwidget.h \
+    dataflow.h \
     mainwindow.h
 
 FORMS += \
@@ -36,3 +39,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc
+
+

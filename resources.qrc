@@ -2,4 +2,9 @@
     <qresource prefix="/background">
         <file>Hackathon_image.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>Processes.qml</file>
+        <file>Ingredient.qml</file>
+        <file>Dataflow.qml</file>
+    </qresource>
 </RCC>
