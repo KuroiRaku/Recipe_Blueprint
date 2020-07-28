@@ -18,73 +18,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #include(nodes/Connection)
 
 SOURCES += \
-    QtNodeEditor-master/examples/example2/TextDisplayDataModel.cpp \
-    QtNodeEditor-master/examples/example2/TextSourceDataModel.cpp \
-    QtNodeEditor-master/examples/example2/main.cpp \
-    QtNodeEditor-master/src/Connection.cpp \
-    QtNodeEditor-master/src/ConnectionBlurEffect.cpp \
-    QtNodeEditor-master/src/ConnectionGeometry.cpp \
-    QtNodeEditor-master/src/ConnectionGraphicsObject.cpp \
-    QtNodeEditor-master/src/ConnectionPainter.cpp \
-    QtNodeEditor-master/src/ConnectionState.cpp \
-    QtNodeEditor-master/src/ConnectionStyle.cpp \
-    QtNodeEditor-master/src/DataModelRegistry.cpp \
-    QtNodeEditor-master/src/FlowScene.cpp \
-    QtNodeEditor-master/src/FlowView.cpp \
-    QtNodeEditor-master/src/FlowViewStyle.cpp \
-    QtNodeEditor-master/src/Node.cpp \
-    QtNodeEditor-master/src/NodeConnectionInteraction.cpp \
-    QtNodeEditor-master/src/NodeDataModel.cpp \
-    QtNodeEditor-master/src/NodeGeometry.cpp \
-    QtNodeEditor-master/src/NodeGraphicsObject.cpp \
-    QtNodeEditor-master/src/NodePainter.cpp \
-    QtNodeEditor-master/src/NodeState.cpp \
-    QtNodeEditor-master/src/NodeStyle.cpp \
-    QtNodeEditor-master/src/Properties.cpp \
-    QtNodeEditor-master/src/StyleCollection.cpp \
-    connectwidget.cpp \
     main.cpp \
-    mainwindow.cpp
+    qneblock.cpp \
+    qneconnection.cpp \
+    qnemainwindow.cpp \
+    qneport.cpp \
+    qnodeseditor.cpp
 
 HEADERS += \
-    QtNodeEditor-master/examples/example2/TextData.hpp \
-    QtNodeEditor-master/examples/example2/TextDisplayDataModel.hpp \
-    QtNodeEditor-master/examples/example2/TextSourceDataModel.hpp \
-    QtNodeEditor-master/src/ConnectionBlurEffect.hpp \
-    QtNodeEditor-master/src/ConnectionPainter.hpp \
-    QtNodeEditor-master/src/NodeConnectionInteraction.hpp \
-    QtNodeEditor-master/src/NodePainter.hpp \
-    QtNodeEditor-master/src/Properties.hpp \
-    QtNodeEditor-master/src/StyleCollection.hpp \
-    connectwidget.h \
-    mainwindow.h \
-    nodes/internal/Compiler.hpp \
-    nodes/internal/Connection.hpp \
-    nodes/internal/ConnectionGeometry.hpp \
-    nodes/internal/ConnectionGraphicsObject.hpp \
-    nodes/internal/ConnectionState.hpp \
-    nodes/internal/ConnectionStyle.hpp \
-    nodes/internal/DataModelRegistry.hpp \
-    nodes/internal/Export.hpp \
-    nodes/internal/FlowScene.hpp \
-    nodes/internal/FlowView.hpp \
-    nodes/internal/FlowViewStyle.hpp \
-    nodes/internal/Node.hpp \
-    nodes/internal/NodeData.hpp \
-    nodes/internal/NodeDataModel.hpp \
-    nodes/internal/NodeGeometry.hpp \
-    nodes/internal/NodeGraphicsObject.hpp \
-    nodes/internal/NodePainterDelegate.hpp \
-    nodes/internal/NodeState.hpp \
-    nodes/internal/NodeStyle.hpp \
-    nodes/internal/OperatingSystem.hpp \
-    nodes/internal/PortType.hpp \
-    nodes/internal/QStringStdHash.hpp \
-    nodes/internal/QUuidStdHash.hpp \
-    nodes/internal/Serializable.hpp \
-    nodes/internal/Style.hpp \
-    nodes/internal/TypeConverter.hpp \
-    nodes/internal/memory.hpp
+    qneblock.h \
+    qneconnection.h \
+    qnemainwindow.h \
+    qneport.h \
+    qnodeseditor.h \
+    ui_qnemainwindow.h
 
 FORMS += \
     mainwindow.ui
@@ -95,5 +42,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    QtNodeEditor-master/resources/resources.qrc \
     resources.qrc
