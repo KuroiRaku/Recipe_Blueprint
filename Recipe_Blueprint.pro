@@ -15,7 +15,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+#include(nodes/Connection)
+
 SOURCES += \
+    QtNodeEditor-master/examples/example2/TextDisplayDataModel.cpp \
+    QtNodeEditor-master/examples/example2/TextSourceDataModel.cpp \
+    QtNodeEditor-master/examples/example2/main.cpp \
     QtNodeEditor-master/src/Connection.cpp \
     QtNodeEditor-master/src/ConnectionBlurEffect.cpp \
     QtNodeEditor-master/src/ConnectionGeometry.cpp \
@@ -42,6 +47,9 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    QtNodeEditor-master/examples/example2/TextData.hpp \
+    QtNodeEditor-master/examples/example2/TextDisplayDataModel.hpp \
+    QtNodeEditor-master/examples/example2/TextSourceDataModel.hpp \
     QtNodeEditor-master/src/ConnectionBlurEffect.hpp \
     QtNodeEditor-master/src/ConnectionPainter.hpp \
     QtNodeEditor-master/src/NodeConnectionInteraction.hpp \
@@ -49,7 +57,34 @@ HEADERS += \
     QtNodeEditor-master/src/Properties.hpp \
     QtNodeEditor-master/src/StyleCollection.hpp \
     connectwidget.h \
-    mainwindow.h
+    mainwindow.h \
+    nodes/internal/Compiler.hpp \
+    nodes/internal/Connection.hpp \
+    nodes/internal/ConnectionGeometry.hpp \
+    nodes/internal/ConnectionGraphicsObject.hpp \
+    nodes/internal/ConnectionState.hpp \
+    nodes/internal/ConnectionStyle.hpp \
+    nodes/internal/DataModelRegistry.hpp \
+    nodes/internal/Export.hpp \
+    nodes/internal/FlowScene.hpp \
+    nodes/internal/FlowView.hpp \
+    nodes/internal/FlowViewStyle.hpp \
+    nodes/internal/Node.hpp \
+    nodes/internal/NodeData.hpp \
+    nodes/internal/NodeDataModel.hpp \
+    nodes/internal/NodeGeometry.hpp \
+    nodes/internal/NodeGraphicsObject.hpp \
+    nodes/internal/NodePainterDelegate.hpp \
+    nodes/internal/NodeState.hpp \
+    nodes/internal/NodeStyle.hpp \
+    nodes/internal/OperatingSystem.hpp \
+    nodes/internal/PortType.hpp \
+    nodes/internal/QStringStdHash.hpp \
+    nodes/internal/QUuidStdHash.hpp \
+    nodes/internal/Serializable.hpp \
+    nodes/internal/Style.hpp \
+    nodes/internal/TypeConverter.hpp \
+    nodes/internal/memory.hpp
 
 FORMS += \
     mainwindow.ui
@@ -60,4 +95,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    QtNodeEditor-master/resources/resources.qrc \
     resources.qrc

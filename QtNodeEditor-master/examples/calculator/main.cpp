@@ -63,7 +63,7 @@ static
 void
 setStyle()
 {
-  ConnectionStyle::setConnectionStyle(
+  QtNodes::ConnectionStyle::setConnectionStyle(
   R"(
   {
     "ConnectionStyle": {
