@@ -1,36 +1,13 @@
-
-
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QVBoxLayout>
-#include <QtWidgets/QMenuBar>
-
-
-//for this to get detected, check out the changes in .pro file on QT +=...
-#include <QGuiApplication>
-#include <QtQml>
-#include <QQuickStyle>
-
-// QuickQanava headers
-#include <QuickQanava.h>
-
-#include <QuickQanava>
-
-#include "dataflow.h"
-
-
-#include "mainwindow.h"
-#include "connectwidget.h"
 #include <QApplication>
+#include "qnemainwindow.h"
 
 int main(int argc, char *argv[])
 {
     /*
     QApplication a(argc, argv);
-    MainWindow w;
-    ConnectWidget connect;
+    QNEMainWindow w;
+    w.show();
 
-
-    connect.show();
     return a.exec();
     */
     QGuiApplication app(argc, argv);

@@ -15,19 +15,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-include(Vendor/QuickQanava/src/quickqanava.pri)
 
 
 SOURCES += \
-    connectwidget.cpp \
-    dataflow.cpp \
     main.cpp \
-    mainwindow.cpp
+    qneblock.cpp \
+    qneconnection.cpp \
+    qnemainwindow.cpp \
+    qneport.cpp \
+    qnodeseditor.cpp
 
 HEADERS += \
-    connectwidget.h \
-    dataflow.h \
-    mainwindow.h
+    qneblock.h \
+    qneconnection.h \
+    qnemainwindow.h \
+    qneport.h \
+    qnodeseditor.h \
+    ui_qnemainwindow.h
+
 
 FORMS += \
     mainwindow.ui
