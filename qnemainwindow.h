@@ -28,6 +28,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 #include <QMainWindow>
 #include <QtWidgets>
+#include "ui_qnemainwindow.h"
 
 
 class QNodesEditor;
@@ -40,10 +41,23 @@ public:
 	explicit QNEMainWindow(QWidget *parent = 0);
 	~QNEMainWindow();
 
+protected:
+#ifndef QT_NO_CONTEXTMENU
+    void contextMenuEvent(QContextMenuEvent *event) override;
+#endif
+
 private slots:
 	void saveFile();
 	void loadFile();
 	void addBlock();
+    void addFryingProcesses();
+    void addIngredient();
+    void createMenu();
+    void undo();
+    void redo();
+    void cut();
+    void copy();
+    void paste();
 
 private:
 
@@ -51,6 +65,7 @@ private:
     QMenu *fileMenu;
     QGraphicsView *view;
     QGraphicsScene *scene;
+    Ui::QNEMainWindow *ui;
 };
 
 #endif // QNEMAINWINDOW_H

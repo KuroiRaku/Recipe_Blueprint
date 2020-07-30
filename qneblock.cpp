@@ -49,6 +49,7 @@ QNEBlock::QNEBlock(QGraphicsItem *parent) : QGraphicsPathItem(parent)
 
 QNEPort* QNEBlock::addPort(const QString &name, bool isOutput, int flags, int ptr)
 {
+    //look at QNEPort for more reference
 	QNEPort *port = new QNEPort(this);
 	port->setName(name);
 	port->setIsOutput(isOutput);
@@ -56,8 +57,12 @@ QNEPort* QNEBlock::addPort(const QString &name, bool isOutput, int flags, int pt
 	port->setPortFlags(flags);
 	port->setPtr(ptr);
 
+
+
+    //code below is to make sure that the text aligns
+
 	QFontMetrics fm(scene()->font());
-	int w = fm.width(name);
+    int w = fm.horizontalAdvance(name);
 	int h = fm.height();
 	// port->setPos(0, height + h/2);
 	if (w > width - horzMargin)

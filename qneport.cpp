@@ -140,6 +140,7 @@ bool QNEPort::isConnected(QNEPort *other)
 	return false;
 }
 
+//when the box is moved, it will need to update the path
 QVariant QNEPort::itemChange(GraphicsItemChange change, const QVariant &value)
 {
 	if (change == ItemScenePositionHasChanged)
