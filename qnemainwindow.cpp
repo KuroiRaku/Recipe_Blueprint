@@ -123,7 +123,7 @@ void QNEMainWindow::addBlock()
     QNEBlock *b = new QNEBlock(0);
 
     scene->addItem(b);
-	static const char* names[] = {"Vin", "Voutsadfasdf", "Imin", "Imax", "mul", "add", "sub", "div", "Conv", "FFT"};
+    static const char* names[] = {"Fry", "Voutsadfasdf", "Imin", "Imax", "mul", "add", "sub", "div", "Conv", "FFT"};
 	for (int i = 0; i < 4 + rand() % 3; i++)
 	{
 		b->addPort(names[rand() % 10], rand() % 2, 0, 0);
@@ -137,12 +137,22 @@ void QNEMainWindow::addFryingProcesses()
     scene->addItem(b);
     b->addPort("Frying", 0, QNEPort::NamePort);
     b->addPort("Processes", 0, QNEPort::TypePort);
+
     b->addInputPort("in1 Ingredient");
     b->addInputPort("in2 Ingredient");
     b->addInputPort("in3 Utensils");
     b->addOutputPort("out1");
-    b->setPos(0,150);
+    b->setPos(QCursor::pos());
 
+}
+
+void QNEMainWindow::addDescription()
+{
+    QNEBlock *b = new QNEBlock(0);
+    scene->addItem(b);
+    b->addPort("Description", 0, QNEPort::NamePort);
+    b->addPort("Remember to season it!", 0, QNEPort::DescriptionPort);
+    b->setPos(QCursor::pos());
 }
 
 
@@ -150,11 +160,11 @@ void QNEMainWindow::addIngredient()
 {
     QNEBlock *b = new QNEBlock(0);
     scene->addItem(b);
-    b->addPort("User Input", 0, QNEPort::NamePort);
+    b->addPort("User Input", 0, QNEPort::TextInputPort);
     b->addPort("Ingredient", 0, QNEPort::TypePort);
 
     b->addOutputPort("out1");
-
+    b->setPos(QCursor::pos());
 }
 
 void QNEMainWindow::createMenu()
@@ -178,6 +188,8 @@ void QNEMainWindow::createMenu()
     QAction *addAct = new QAction(tr("&Add"), this);
     addAct->setStatusTip(tr("Add a block"));
     connect(addAct, SIGNAL(triggered()), this, SLOT(addBlock()));
+
+
 
     fileMenu = menuBar()->addMenu(tr("&File"));
     fileMenu->addAction(addAct);
@@ -220,12 +232,12 @@ void QNEMainWindow::contextMenuEvent(QContextMenuEvent *event)
 
     QAction *cutAct = new QAction(tr("&Cut"), this);
     cutAct->setShortcuts(QKeySequence::Cut);
-    cutAct->setStatusTip(tr("Save a file"));
+    cutAct->setStatusTip(tr("Cut"));
     connect(cutAct, SIGNAL(triggered()), this, SLOT(cut()));
 
     QAction *copyAct = new QAction(tr("&Copy"), this);
     copyAct->setShortcuts(QKeySequence::Copy);
-    copyAct->setStatusTip(tr("Save a file"));
+    copyAct->setStatusTip(tr("Copy"));
     connect(copyAct, SIGNAL(triggered()), this, SLOT(copy()));
 
     QAction *pasteAct = new QAction(tr("&Paste"), this);
@@ -239,12 +251,18 @@ void QNEMainWindow::contextMenuEvent(QContextMenuEvent *event)
 
     QAction *addProcesses = new QAction(tr("&AddProcesses"), this);
     addProcesses->setStatusTip(tr("Add Processes"));
-    connect(addIngredient, SIGNAL(triggered()), this, SLOT(addIngredient()));
+    connect(addIngredient, SIGNAL(triggered()), this, SLOT(addFryingProcesses()));
+
+    QAction *addDescription = new QAction(tr("&AddDescription"), this);
+    addProcesses->setStatusTip(tr("Add Description"));
+    connect(addIngredient, SIGNAL(triggered()), this, SLOT(addDescription()));
 
     menu.addAction(cutAct);
     menu.addAction(copyAct);
     menu.addAction(pasteAct);
     menu.addAction(addIngredient);
+    menu.addAction(addProcesses);
+    menu.addAction(addDescription);
     menu.exec(event->globalPos());
 }
 #endif // QT_NO_CONTEXTMENU

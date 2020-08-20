@@ -27,6 +27,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 #define QNEPORT_H
 
 #include <QGraphicsPathItem>
+#include <QMouseEvent>
+#include <QTextCursor>
+#include <QGraphicsSceneMouseEvent>
 
 class QNEBlock;
 class QNEConnection;
@@ -35,7 +38,8 @@ class QNEPort : public QGraphicsPathItem
 {
 public:
 	enum { Type = QGraphicsItem::UserType + 1 };
-	enum { NamePort = 1, TypePort = 2 };
+    //enum for Other port that isn't input and output port
+    enum { NamePort = 1, TypePort = 2, TextInputPort =3, DescriptionPort = 4 };
 
     QNEPort(QGraphicsItem *parent = 0);
 	~QNEPort();
@@ -43,6 +47,8 @@ public:
 	void setNEBlock(QNEBlock*);
 	void setName(const QString &n);
 	void setIsOutput(bool o);
+    //void QNEPort::mousePressEvent( QGraphicsSceneMouseEvent *event );
+
 	int radius();
 	bool isOutput();
 	QVector<QNEConnection*>& connections();
@@ -73,6 +79,8 @@ private:
 	QVector<QNEConnection*> m_connections;
 	int m_portFlags;
 	quint64 m_ptr;
+    QTextCursor* cursor;
+    //bool addText;
 };
 
 #endif // QNEPORT_H

@@ -27,6 +27,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 #define QNEBLOCK_H
 
 #include <QGraphicsPathItem>
+#include <QLineEdit>
 
 class QNEPort;
 
@@ -38,6 +39,8 @@ public:
     QNEBlock(QGraphicsItem *parent = 0);
 
 	QNEPort* addPort(const QString &name, bool isOutput, int flags = 0, int ptr = 0);
+    void addTextBox(QString &description);
+    void addUserEditBox();
 	void addInputPort(const QString &name);
 	void addOutputPort(const QString &name);
 	void addInputPorts(const QStringList &names);
@@ -58,6 +61,11 @@ private:
 	int vertMargin;
 	int width;
 	int height;
+    QGraphicsTextItem* label;
+    QGraphicsTextItem* userInputTextBox;
+
+    //this function is when we want to use widget
+    //QGraphicsProxyWidget* pProxyWidget;
 };
 
 #endif // QNEBLOCK_H

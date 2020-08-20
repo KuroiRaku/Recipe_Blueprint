@@ -49,9 +49,12 @@ protected:
 private slots:
 	void saveFile();
 	void loadFile();
+    //for adding processes
 	void addBlock();
     void addFryingProcesses();
     void addIngredient();
+    void addDescription();
+
     void createMenu();
     void undo();
     void redo();

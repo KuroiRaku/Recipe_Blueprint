@@ -47,6 +47,20 @@ QNEBlock::QNEBlock(QGraphicsItem *parent) : QGraphicsPathItem(parent)
 	height = vertMargin;
 }
 
+void QNEBlock ::addTextBox(QString &name)
+{
+    label = new QGraphicsTextItem(this);
+    label->setPlainText(name);
+
+}
+
+void QNEBlock::addUserEditBox()
+{
+
+
+
+}
+
 QNEPort* QNEBlock::addPort(const QString &name, bool isOutput, int flags, int ptr)
 {
     //look at QNEPort for more reference

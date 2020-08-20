@@ -26,7 +26,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 #include "qneport.h"
 
 #include <QGraphicsScene>
+#include <QInputDialog>
 #include <QFontMetrics>
+
+
 
 #include <QPen>
 
@@ -69,6 +72,8 @@ void QNEPort::setName(const QString &n)
 	label->setPlainText(n);
 }
 
+
+
 void QNEPort::setIsOutput(bool o)
 {
 	isOutput_ = o;
@@ -101,7 +106,9 @@ void QNEPort::setPortFlags(int f)
 {
 	m_portFlags = f;
 
-	if (m_portFlags & TypePort)
+
+
+    if (m_portFlags & TypePort)
 	{
 		QFont font(scene()->font());
 		font.setItalic(true);
@@ -113,8 +120,25 @@ void QNEPort::setPortFlags(int f)
 		font.setBold(true);
 		label->setFont(font);
 		setPath(QPainterPath());
-	}
+    }else if(m_portFlags & TextInputPort)
+    {
+        QFont font(scene()->font());
+        label->setFont(font);
+
+
+        setPath(QPainterPath());
+
+    }else if(m_portFlags & DescriptionPort)
+    {
+        QFont font(scene()->font());
+        font.setBold(true);
+        label->setFont(font);
+        setPath(QPainterPath());
+    }
+    label->setTextInteractionFlags(Qt::TextEditorInteraction);
 }
+
+
 
 QNEBlock* QNEPort::block() const
 {
@@ -139,6 +163,7 @@ bool QNEPort::isConnected(QNEPort *other)
 
 	return false;
 }
+
 
 //when the box is moved, it will need to update the path
 QVariant QNEPort::itemChange(GraphicsItemChange change, const QVariant &value)
