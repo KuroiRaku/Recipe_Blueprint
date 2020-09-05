@@ -106,7 +106,7 @@ void QNEPort::setPortFlags(int f)
 {
 	m_portFlags = f;
 
-
+    //<b>
 
     if (m_portFlags & TypePort)
 	{
@@ -124,8 +124,7 @@ void QNEPort::setPortFlags(int f)
     {
         QFont font(scene()->font());
         label->setFont(font);
-
-
+        label->setTextInteractionFlags(Qt::TextEditorInteraction);
         setPath(QPainterPath());
 
     }else if(m_portFlags & DescriptionPort)
@@ -135,7 +134,7 @@ void QNEPort::setPortFlags(int f)
         label->setFont(font);
         setPath(QPainterPath());
     }
-    label->setTextInteractionFlags(Qt::TextEditorInteraction);
+
 }
 
 

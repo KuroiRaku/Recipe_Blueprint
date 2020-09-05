@@ -39,6 +39,9 @@ QNEMainWindow::QNEMainWindow(QWidget *parent) :
 {
     scene = new QGraphicsScene();
 
+
+
+
     //setting up ui that we use in ui_qnemainwindow.h
     //I was thinking abstracting UI into a class, but lets do in the same class instead
     //ui->setupUi(this);
@@ -71,8 +74,8 @@ QNEMainWindow::QNEMainWindow(QWidget *parent) :
 
     QNEBlock *b = new QNEBlock(0);
     scene->addItem(b);
-    b->addPort("test", 0, QNEPort::NamePort);
-    b->addPort("TestBlock", 0, QNEPort::TypePort);
+    b->addPort("random", 0, QNEPort::NamePort);
+    b->addPort("random block", 0, QNEPort::TypePort);
     b->addInputPort("in1");
     b->addInputPort("in2");
     b->addInputPort("in3");
@@ -234,35 +237,41 @@ void QNEMainWindow::contextMenuEvent(QContextMenuEvent *event)
     cutAct->setShortcuts(QKeySequence::Cut);
     cutAct->setStatusTip(tr("Cut"));
     connect(cutAct, SIGNAL(triggered()), this, SLOT(cut()));
+    menu.addAction(cutAct);
 
     QAction *copyAct = new QAction(tr("&Copy"), this);
     copyAct->setShortcuts(QKeySequence::Copy);
     copyAct->setStatusTip(tr("Copy"));
     connect(copyAct, SIGNAL(triggered()), this, SLOT(copy()));
+    menu.addAction(copyAct);
 
     QAction *pasteAct = new QAction(tr("&Paste"), this);
     pasteAct->setShortcuts(QKeySequence::Paste);
     pasteAct->setStatusTip(tr("Paste"));
     connect(pasteAct, SIGNAL(triggered()), this, SLOT(paste()));
+    menu.addAction(pasteAct);
 
     QAction *addIngredient = new QAction(tr("&AddIngredient"), this);
     addIngredient->setStatusTip(tr("Save a file"));
     connect(addIngredient, SIGNAL(triggered()), this, SLOT(addIngredient()));
+    menu.addAction(addIngredient);
 
     QAction *addProcesses = new QAction(tr("&AddProcesses"), this);
     addProcesses->setStatusTip(tr("Add Processes"));
     connect(addIngredient, SIGNAL(triggered()), this, SLOT(addFryingProcesses()));
+    menu.addAction(addProcesses);
 
     QAction *addDescription = new QAction(tr("&AddDescription"), this);
     addProcesses->setStatusTip(tr("Add Description"));
     connect(addIngredient, SIGNAL(triggered()), this, SLOT(addDescription()));
-
-    menu.addAction(cutAct);
-    menu.addAction(copyAct);
-    menu.addAction(pasteAct);
-    menu.addAction(addIngredient);
-    menu.addAction(addProcesses);
     menu.addAction(addDescription);
+
+
+
+
+
+
+
     menu.exec(event->globalPos());
 }
 #endif // QT_NO_CONTEXTMENU
