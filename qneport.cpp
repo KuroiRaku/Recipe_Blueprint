@@ -106,6 +106,7 @@ void QNEPort::setPortFlags(int f)
 {
 	m_portFlags = f;
 
+    //Person2: I hate this code
     //<b>
 
     if (m_portFlags & TypePort)
