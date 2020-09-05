@@ -9,3 +9,8 @@ The code are reference from this website https://adared.ch/qnodeseditor-qt-nodes
 I'm modifying the code so it can be fit into our project :)
 
 People who are interested please contact me by my discord "KuroiRaku 黒い楽#0870"
+Send me an email: leelecherg@hotmail.com
+
+# Features to be added
+- Users Can add customiseable Nodes
+- 
